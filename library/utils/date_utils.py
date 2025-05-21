@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def calculate_late_fee(borrow_date_str, allowed_days=7, fee_per_day=1):
+def calculate_late_fee(borrow_date_str, allowed_days=7, fee_per_day=3):
     try:
         borrow_date = datetime.strptime(borrow_date_str, "%Y-%m-%d")
         current_date = datetime.today()

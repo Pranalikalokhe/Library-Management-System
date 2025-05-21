@@ -3,6 +3,8 @@ from utils.date_utils import calculate_late_fee
 from models.book import Book
 from models.member import Member
 from datetime import datetime
+from utils.decorators import log_action
+
 
 class Library:
     def __init__(self):
@@ -12,18 +14,25 @@ class Library:
     def save_all(self):
         save_data('data/books.json', self.books)
         save_data('data/members.json', self.members)
-
+        
+    @log_action
     def register_member(self):
         name = input("Enter member name: ").strip()
         member_id = input("Enter member ID: ").strip()
         if any(m['id'] == member_id for m in self.members):
             print("Member already exists.")
             return
-        new_member = Member(member_id, name)
-        self.members.append(new_member.to_dict())
+        new_member = {
+            "id": member_id,
+            "name": name,
+            "borrowed_books": []
+        }
+        self.members.append(new_member)
         self.save_all()
         print("Member registered successfully.")
-
+        
+        
+    @log_action
     def add_book(self):
         isbn = input("Enter ISBN: ").strip()
         title = input("Enter title: ").strip()
@@ -31,8 +40,13 @@ class Library:
         if any(b['isbn'] == isbn for b in self.books):
             print("Book already exists.")
             return
-        new_book = Book(isbn, title, author)
-        self.books.append(new_book.to_dict())
+        new_book = {
+            "isbn": isbn,
+            "title": title,
+            "author": author,
+            "available": True
+        }
+        self.books.append(new_book)
         self.save_all()
         print("Book added.")
 
@@ -48,7 +62,7 @@ class Library:
         if not book:
             print("Book not found.")
             return
-        if not book['available']:
+        if not book.get('available', True):
             print("Book is currently borrowed.")
             return
 
@@ -82,7 +96,7 @@ class Library:
         book['available'] = True
         self.save_all()
 
-        print(f"Book returned successfully. Late fee: ${fee}")
+        print(f"Book returned successfully. Late fee: ₹{fee}")
 
     def view_member_history(self):
         member_id = input("Enter member ID: ").strip()
@@ -98,3 +112,17 @@ class Library:
             print(f"Borrowed books for {member['name']}:")
             for book in member['borrowed_books']:
                 print(f" - ISBN: {book['isbn']}, Borrow Date: {book['borrow_date']}")
+
+    def get_overdue_books(self):
+        for member in self.members:
+            for borrowed in member.get('borrowed_books', []):
+                borrow_date = borrowed.get("borrow_date")
+                if borrow_date:
+                    fee = calculate_late_fee(borrow_date)
+                    if fee > 0:
+                        yield {
+                            "member": member['name'],
+                            "book_id": borrowed["isbn"],
+                            "borrow_date": borrow_date,
+                            "late_fee": fee
+                        }

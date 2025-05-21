@@ -2,22 +2,12 @@
     {
         "id": "M001",
         "name": "Alice",
-        "borrowed_books": [
-            {
-                "isbn": "111",
-                "borrow_date": "2025-05-18"
-            }
-        ]
+        "borrowed_books": []
     },
     {
         "id": "M002",
         "name": "Bob",
-        "borrowed_books": [
-            {
-                "isbn": "333",
-                "borrow_date": "2025-05-18"
-            }
-        ]
+        "borrowed_books": []
     },
     {
         "id": "M003",
@@ -29,8 +19,8 @@
         "name": "Pranali",
         "borrowed_books": [
             {
-                "isbn": "555",
-                "borrow_date": "2025-05-18"
+                "isbn": "888",
+                "borrow_date": "2025-05-01"
             }
         ]
     }

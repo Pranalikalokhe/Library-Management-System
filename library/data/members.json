@@ -1,0 +1,37 @@
+[
+    {
+        "id": "M001",
+        "name": "Alice",
+        "borrowed_books": [
+            {
+                "isbn": "111",
+                "borrow_date": "2025-05-18"
+            }
+        ]
+    },
+    {
+        "id": "M002",
+        "name": "Bob",
+        "borrowed_books": [
+            {
+                "isbn": "333",
+                "borrow_date": "2025-05-18"
+            }
+        ]
+    },
+    {
+        "id": "M003",
+        "name": "Charlie",
+        "borrowed_books": []
+    },
+    {
+        "id": "M005",
+        "name": "Pranali",
+        "borrowed_books": [
+            {
+                "isbn": "555",
+                "borrow_date": "2025-05-18"
+            }
+        ]
+    }
+]

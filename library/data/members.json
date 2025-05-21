@@ -1,14 +1,14 @@
 [
     {
-        "id": "admin1",
-        "name": "Admin User",
-        "role": "admin",
+        "id": "M001",
+        "name": "Alice",
+        "role": "member",
         "borrowed_books": []
     },
     {
-        "id": "mem1",
-        "name": "Member User",
-        "role": "member",
+        "id": "A001",
+        "name": "Admin",
+        "role": "admin",
         "borrowed_books": []
     }
 ]

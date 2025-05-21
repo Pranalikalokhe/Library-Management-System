@@ -1,26 +1,8 @@
 [
     {
-        "isbn": "111",
-        "title": "Python 101",
-        "author": "Mark",
+        "isbn": "123",
+        "title": "Test Book",
+        "author": "Author A",
         "available": true
-    },
-    {
-        "isbn": "333",
-        "title": "Machine Learning Basics",
-        "author": "Andrew",
-        "available": true
-    },
-    {
-        "isbn": "555",
-        "title": "Data science",
-        "author": "Neha",
-        "available": true
-    },
-    {
-        "isbn": "888",
-        "title": "Drama",
-        "author": "pranali",
-        "available": false
     }
 ]

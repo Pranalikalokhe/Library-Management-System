@@ -1,27 +1,14 @@
 [
     {
-        "id": "M001",
-        "name": "Alice",
+        "id": "admin1",
+        "name": "Admin User",
+        "role": "admin",
         "borrowed_books": []
     },
     {
-        "id": "M002",
-        "name": "Bob",
+        "id": "mem1",
+        "name": "Member User",
+        "role": "member",
         "borrowed_books": []
-    },
-    {
-        "id": "M003",
-        "name": "Charlie",
-        "borrowed_books": []
-    },
-    {
-        "id": "M005",
-        "name": "Pranali",
-        "borrowed_books": [
-            {
-                "isbn": "888",
-                "borrow_date": "2025-05-01"
-            }
-        ]
     }
 ]

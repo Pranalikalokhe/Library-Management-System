@@ -1,0 +1,8 @@
+[
+    {
+        "isbn": "123",
+        "title": "Test Book",
+        "author": "Author A",
+        "available": true
+    }
+]

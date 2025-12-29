@@ -1,0 +1,14 @@
+[
+    {
+        "id": "M001",
+        "name": "Alice",
+        "role": "member",
+        "borrowed_books": []
+    },
+    {
+        "id": "A001",
+        "name": "Admin",
+        "role": "admin",
+        "borrowed_books": []
+    }
+]
